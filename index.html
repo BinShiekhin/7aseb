@@ -1,0 +1,726 @@
+<html lang="ar-SA" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>ملخص الحاسب اول باب</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2d52b791-7a96-80c2-8692-d038c2d4e2c7" class="page sans"><header><h1 class="page-title" dir="auto">ملخص الحاسب اول باب</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80f6-b372-c64611dfdb92" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-806c-998f-d594fd6e17ec" class="">بسم الله الرحمن الرحيم </p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8087-83f6-da9cf57fc3f6" class="">
+</p></div><div style="display:contents" dir="rtl"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2d52b791-7a96-80b3-8f3c-e1c37af17131"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8078-bc28-eb9798a858bc" class="">الباب الأول</p></div></div></figure></div><div style="display:contents" dir="auto"><hr id="2d52b791-7a96-8080-aad8-f3b0e09b2066"/></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8017-bea2-f72676c361aa" class="toggle"><li><details open=""><summary>وظائف الحاسب الآلي</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80e2-848f-d6dddc0e358f" class="">-استقبال </p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-800f-bb07-da05e1ac8f4f" class="">-تحليل</p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80d6-b682-f5b393ad2af9" class="">-تخزين </p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80ed-b400-c6a194aa3405" class="">-اخراج</p></div><div style="display:contents" dir="auto"><h1 id="2d52b791-7a96-8013-8856-eb0f8b941bcd" class="">البيانات</h1></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-803e-b52a-fdd01ff365c2" class="toggle"><li><details open=""><summary>انواع الحواسيب</summary><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8021-acbf-cde5d1bb6b33" class="toggle"><li><details open=""><summary>السوبر ( العملاق )</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80d4-aa38-df00bf59af8c" class=""> يتميز بالحجم الكبير والقدرة الفائقة والسرعة على المعالجة، حيث أنه يعتبر من الآلات السريعة جدا ولديه القدرة على <mark class="highlight-orange">تشغيل العشرات من البرامج في وقت واحد</mark> ، <mark class="highlight-teal">ويتميز بإمكانية ربطه بالمئات من الوحدات الطرفية.</mark></p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-807e-96b6-cd15dff9c42c" class=""><mark class="highlight-blue">ويعيب عليه تكلفته الباهظة جداً</mark> لذلك نجده في <mark class="highlight-pink">الشركات الكبيرة مثل أرامكو للتنقيب عن النفط</mark>.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-804c-9473-db8df318e26f" class="toggle"><li><details open=""><summary>المين فريم ( الكبير )</summary><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-801b-b0d8-c77da650ffcf" class="bulleted-list"><li style="list-style-type:disc">الحاسوب الكبير (Mainframes Computer) يمتاز بسرعته العالية جداً، ويمتلك سعة تخزين عالية حيث أن مقدرته على <mark class="highlight-blue">خدمة مئات المستخدمين في الوقت نفسه،</mark> كما <mark class="highlight-teal">هو النوع الشائع في الجامعات وشركات الطيران والاتصالات.</mark></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8042-b129-e6baeea93b88" class="toggle"><li><details open=""><summary>الميني كمبيوتر ( المتوسط )</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8018-9157-eb13d5a0e56a" class="">الحاسب الآلي المتوسط (Mini Computer) : ظهر الحاسوب المتوسط <mark class="highlight-purple">في مطلع الستينات</mark> بعد <mark class="highlight-red">استخدام السليكون في تصنيع أجزاء الحاسوب</mark>، وهو حاسوب متعدد المستخدمين قادر على خدمة <mark class="highlight-yellow">عشرات إلى مئات المستخدمين في وقت واحد</mark> ، <mark class="highlight-teal">وقد أصبح هذا النوع مهملا نظرا لأن الحاسوب الدقيق أصبح ذا قدرة فائقة توازي الحاسوب المتوسط في سرعته ووظائفه</mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8095-b8cf-c805d64cf503" class="toggle"><li><details open=""><summary>الميكرو كمبيوتر ( الدقيق )</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8031-9d3a-e109ef17d78b" class="">الحاسب الدقيق (Micro-Computer) :</p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8011-9559-c6ba812bc737" class="">وهو مصطلح يطلق على الحاسوب صغير الحجم والذي يحتوي على <mark class="highlight-yellow">معالج دقيق</mark> ( microprocessor)<mark class="highlight-teal"> ومن الشائع إطلاقه على ما يعرف بالحاسوب الشخصي</mark> ( Personal Computer)</p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8099-96e2-c03b0942a9ca" class=""><mark class="highlight-yellow">وقد أصبح يعتمد عليه في تطبيقات الكثير من الشركات الصغيرة</mark>.</p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8005-80ce-e30d11fd962a" class="">وله ثلاثة أنواع :</p></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80f6-8110-c85e89d9d970" class="toggle"><li><details open=""><summary>المكتبي (ديسك توب)</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80bb-a15a-e1c0da60c19b" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-806c-beb5-deb28752322d" class="toggle"><li><details open=""><summary>اللابتوب ( المحمول )</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8096-9dd7-fdad3c7d9024" class="">يشبه الشخصي لحد كبير ويستعمله رجال الأعمال والصحفيين</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80ae-bfe1-ce2724a4fb76" class="toggle"><li><details open=""><summary>البوكيت palm ( الجيبي أو الكفي )</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80d9-82c3-ffd4a01e7a49" class="">يطلق عليه أيضا <mark class="highlight-blue">PDA المساعد الشخصي الرقمي </mark></p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-804d-8528-c10bcd180c8d" class="toggle"><li><details open=""><summary>الأجهزة اللوحية </summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80ea-a011-ff681e5fb2ab" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8009-b6d4-cb1a378e8fc8" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8083-a99f-f61fb65025f6" class="toggle"><li><details open=""><summary>النت بوك</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80aa-9dde-dfd5608e7b43" class="">ظهرت في أواخر 2007 ، تستخدم لدخول النت عادة </p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8006-88c6-f1c60334e4fd" class="toggle"><li><details open=""><summary>محطة العمل </summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8087-bd33-fd37a9f7ae4e" class="">تشبه الحاسوب الدقيق من حيث أن مستخدمه واحد، ولكنه أقوى من حيث المعالجة للبيانات والتخزين، إمكانية عرض الرسوم أو الألوان بدقة عالية على شاشة عرض الجهاز ، ولهذا يستخدم هذا النوع <mark class="highlight-blue">من قبل المهندسين والعلماء وفي المختبرات والمصانع أي المجالات التي</mark></p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-807b-b020-d054fd57d784" class=""><mark class="highlight-blue">تتطلب معالجة عالية جداً</mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80fe-b0eb-cdf3fb1c43f9" class="toggle"><li><details open=""><summary>التحكم </summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8092-87cf-da358df1be4c" class="">يستخدم هذا النوع في <mark class="highlight-blue">تطبيقات الزمن الحقيقي (Real time) </mark>، حيث نجده في <mark class="highlight-purple">غرف التحكم بمحطات الكهرباء ومحطات تكرير النفط وغرف المراقبة المحطات تشغيل القطارات</mark>، <mark class="highlight-teal">وله القدرة على التعامل مع الأخطاء التي تنتج أثناء العمل والسعي إلى إصلاحها</mark></p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8097-9547-efb9850af60f" class="toggle"><li><details open=""><summary>وحدة المعالجة</summary><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8093-8e63-e980fbcba273" class="toggle"><li><details open=""><summary>وحدة الحساب والمنطق ALU </summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-808a-8668-f805d01a397e" class="">هي الوحدة المسؤولة عن إجراء العمليات الحسابية ( <mark class="highlight-yellow">كالجمع والطرح والضرب والقسمة</mark> ) والعمليات المنطقية ( كالمقارنة والاختيار والمطابقة ودمج البيانات (</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80fe-ae87-fc5bf62a9d47" class="toggle"><li><details open=""><summary>المسجلات</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80ce-a692-eee38cc01778" class=""><mark class="highlight-teal">هي مواقع خاصة للتخزين المؤقت تستخدم عند تنفيذ برنامج ما</mark>. <mark class="highlight-pink">وتتنوع المسجلات باعتبار نوع البيانات التي تخزنها.</mark> <mark class="highlight-purple">ويقوم المسجل بالتحكم في تنفيذ البرنامج والاحتفاظ المؤقت بالنتائج</mark>.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80fa-9325-cc697f8cf33b" class="toggle"><li><details open=""><summary>وحدة التحكم</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80ab-9506-c5ece22704ec" class="">هي الوحدة المسؤولة عن <mark class="highlight-blue">إرسال إشارات التحكم إلى سائر الوحدات الأخرى في المعالج </mark>وتقوم بجلب تعليمات البرامج من الذاكرة وفك شيفرتها ثم إدارة تنفيذها، فتخزين النتيجة في الذاكرة، <mark class="highlight-teal">فهي تربط بين الذاكرة ووحدات الإدخال / الإخراج لنقل البيانات والنتائج بينها</mark></p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8071-90a2-dd338f477fa3" class="toggle"><li><details open=""><summary>وحدة الذاكرة</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80dc-986c-f84a8f2b3ee1" class="">هي مجموعة من الدوائر الإلكترونية التي تستخدم في حفظ البيانات والبرامج التي تتعامل معها وحدة المعالجة المركزية (CPU) عند تنفيذ العمليات المطلوبة، وتتألف الذاكرة الرئيسية من نوعين أساسيين هما </p></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80e6-9f89-ee9fc80de9c3" class="toggle"><li><details open=""><summary>الرام ( الوصول العشوائي )</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80ab-a772-c869d267b6aa" class="">مصطلح RAM هو اختصار لـ Random Access Memory ، <mark class="highlight-yellow">وتقوم بالاحتفاظ ببيانات الحاسوب بشكل مؤقت أثناء عمل البرنامج ووقت تشغيل الحاسوب، تفقد محتوياتها مع انقطاع التيار الكهربائي أو قفل الجهاز</mark> ، <mark class="highlight-purple">وهي مصنعة من دوائر إلكترونية خاصة ( chips) ، وهذه الدوائر تجمع لتشكل بطاقات صغيرة ( cards</mark>) ، ويتم تثبيتها في مواضع مخصصة لها على اللوحة الأم</p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-805c-ba58-de720ca6e4d8" class="">.(Motherboard)</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80e8-a341-f71aa388a098" class="toggle"><li><details open=""><summary>الروم ( القراءة فقط )</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-808a-99f3-f1b7197fd8eb" class="">مصطلح ROM هو اختصار لـ Read Only Memory ، <mark class="highlight-yellow">وهي تحتفظ بالبيانات الخاصة بتشغيل الحاسوب، والشركة المصنعة لها هي من قامت بوضع أوامر التشغيل بها</mark> ، <mark class="highlight-teal">ولا تفقد محتوياتها مع انقطاع التيار الكهربائي،</mark> <mark class="highlight-purple">وهي ذاكرة للقراءة فقط</mark>.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80fb-96c5-d94d5a919412" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80b1-b2f3-ef33a1c118e8" class="toggle"><li><details open=""><summary>وحدات الإدخال </summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-806e-ab32-e237f1efbe2d" class="">بيتم ذكر الصعبة </p></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80e4-9f95-e959ada348c3" class="toggle"><li><details open=""><summary>عصا التحكم ( joy stick )</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-805c-a70c-fbc671401693" class="">تستعمل في الألعاب </p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8023-a75f-ed4a3d459101" class="toggle"><li><details open=""><summary>شاشة اللمس</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-806b-84e9-f4f99e2cbf72" class="">تعتبر وحدة ادخال وإخراج بنفس الوقت</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80a0-b67f-f0796e17eee1" class="toggle"><li><details open=""><summary>القلم الضوئي </summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-802d-bb3e-c17f9f695ebb" class="">دقته أكبر من الأصبع</p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80e6-be0f-dc9618b8f254" class="toggle"><li><details open=""><summary>وحدات الإخراج</summary><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-805d-b666-c8f9209b3428" class="toggle"><li><details open=""><summary>الشاشة</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80d2-acbb-ea027da6000d" class="">يتم تحديد افضل الشاشات حسب درجة الدقة في العرض <mark class="highlight-teal">والتي تقاس بعدد النقاط المضيئة</mark> ( الاكسل ) <mark class="highlight-yellow">فكلما زادت كلما زادت الدقة اوضح وأكثر دقة</mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8080-a6ff-f1b92dcd0ff6" class="toggle"><li><details open=""><summary>الطابعات</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80f2-a521-fabf91d683f3" class="">ولها ثلاثة أنواع </p></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-808b-8432-c5bbc20da2cc" class="toggle"><li><details open=""><summary>النقطية دوت ماتركس </summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8044-a798-c59698db7142" class="">الأقل تكلفة والأقل وضوحا</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8070-a9a8-fa1d2967b0cd" class="toggle"><li><details open=""><summary>النفاثة للحبر انجكت</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80aa-89ff-ca7c9b17c0e9" class="">متوسطة التكلفة والوضوح</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-801f-8407-d015584ec07c" class="toggle"><li><details open=""><summary>الليزر</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80ae-8f42-fecc8002574a" class="">الاسرع الاكثر تكلفة ووضوح ومنها نوعين ابيض واسود وملون والملون اعلى تكلفة </p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8086-a780-c0c23b6049c4" class="toggle"><li><details open=""><summary>أجهزة الرسم ( البلاتر )</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80d7-993f-f1aaeff7596d" class="">هي من أدوات الإخراج التي تتعامل مع الأشكال ذات الحجم الكبير مثل طباعة رسومات تصنيع الآلات والسيارات واللوحات الإعلانية الضخمة وخرائط البناء بأشكال وأبعاد</p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8035-9068-ed9aa607bb0f" class="">
+</p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80e6-b7da-d15b2e79deb7" class="toggle"><li><details open=""><summary>وحدات التخزين</summary><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80be-95ed-ebe5db0c2fbb" class="toggle"><li><details open=""><summary>القرص الصلب ( الهارد دسك )</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80ad-9a85-fdb65f2da8f2" class="">هو قرص ثابت يخزن الملفات والبرامج بشكل دائم ويتميز بقدرته التخزينية الهائلة، ومع تطور التقنية تم تطوير القرص الصلب ويطلق عليه (SSD) بحيث أصبح أسرع وله مميزات كثيرة عن النوع السابق وهو (HDD) ، <mark class="highlight-yellow">وعادة ما يكون القرص الصلب مثبتا في الجهاز، وقد يكون متصلاً به من الخارج. </mark></p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80e3-a018-c01da7cd8245" class="">وراجع هذا الجدول !</p></div><div style="display:contents" dir="rtl"><figure id="2d52b791-7a96-8048-9002-ec7002e66a4d" class="image"><a href=1000012129.png"><img style="width:367px" src="1000012129.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-802b-b9c5-cccbfdb70b87" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-807e-8467-f5c96982f5e3" class="toggle"><li><details open=""><summary>الذاكرة الفلاشية </summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8005-a59f-dfc9ec0532ec" class="">كان من أحد أهم أدوات التخزين سابقاً الأقراص المرنة ولكن لصغر سعتها التخزينية فقد أهملت <mark class="highlight-brown">وحلت الذاكرة الفلاشية محلها لكبر سعتها التخزينية وسهولة التعامل معها.</mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80de-ac92-fc74d1eecd30" class="toggle"><li><details open=""><summary> الأسطوانة المدمجة ( CD )</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8073-b65f-c888a5bf0ab6" class="">هي أحد وسائط التخزين الأكثر استخداماً لما تتميز به من خفة وزنها يسهل نقلها وحملها ) ، وسعتها الكبيرة، ويتم تخزين البيانات عليها باستخدام تقنية <mark class="highlight-teal">أشعة الليزر</mark>، وتصل سعتها التخزينية إلى <mark class="highlight-yellow">700 ميجا</mark> بايت، <mark class="highlight-purple">ويوجد نوع منها يطلق عليه (DVD) حيث تصل سعته إلى 4.7 جيجا</mark></p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-806c-b218-d13d30e381b8" class="">
+</p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-802b-8712-c8e66d281a4c" class="toggle"><li><details open=""><summary>تمثيل البيانات في الحاسب</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8007-8b1d-e3a282cad9cf" class=""><mark class="highlight-blue">الـbit يكون إما أحد الاحتمالين ( 1,0 )</mark></p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80bd-b451-e49ac8d62b49" class=""><mark class="highlight-yellow">الـbyte يتكون من 8 bit </mark></p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-805f-98c5-d3ea46e72329" class=""><mark class="highlight-teal">الـ byte الواحد = حرف واحد</mark> </p></div><div style="display:contents" dir="auto"><blockquote id="2d52b791-7a96-80a4-8a3e-f3a7d00a2173" class="">يتم تمثيل الأحرف باستعمال ٣ أنظمة مختلفة وهي </blockquote></div><div style="display:contents" dir="auto"><ol type="1" id="2d52b791-7a96-8011-ae4a-d735feec642a" class="numbered-list" start="1"><li>شفرة اسكي</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2d52b791-7a96-80b0-9754-db8eb5876752" class="numbered-list" start="2"><li>شفرة يونيكود</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2d52b791-7a96-8006-8d83-dab5c2194075" class="numbered-list" start="3"><li>شفرة ايسيديك</li></ol></div><div style="display:contents" dir="auto"><blockquote id="2d52b791-7a96-8000-84c1-e247ce99be8e" class="">احفظ الجدول هذا 👈🏽</blockquote></div><div style="display:contents" dir="rtl"><figure id="2d52b791-7a96-80bc-80a4-f739d2746dff" class="image"><a href="1000012131.png"><img style="width:367px" src="1000012131.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-802e-bdc6-f3e37a4ee6b9" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80c0-a70b-ce897015de77" class="toggle"><li><details open=""><summary>قياس أداء جهاز الحاسب</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8045-8613-caf67b32e2b8" class="">١- <mark class="highlight-orange">تعتبر وحدة المعالجة أهم مكونات الحاسب الالي وهي العقل له</mark></p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80c4-a7ad-f04013105946" class="">٢-<mark class="highlight-teal">تلعب ذاكرة الوصول العشوائية (RAM) دوراً أساسياً في تحديد قدرة جهاز الحاسب على التعامل مع العمليات الخاصة بنظام التشغيل والبرامج المتعددة</mark> التي تحتاج إلى تخزين مؤقت الكثير من الأوامر والبيانات الخاصة بالبرنامج ليتم معالجتها في أجزاء من الثانية، <mark class="highlight-blue">فكلما زاد حجم الذاكرة (RAM) استطاع المعالج العمل على أحجام كبيرة من الملفات والبيانات والبرامج</mark> لذلك من الأفضل الحصول على أكبر سعة ممكنة من الذاكرة.</p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80d7-a74c-f70b8b8c317a" class="">٣-وفي الوقت الحالي أصبحت معظم الشركات المصنعة لأجهزة الحاسب تستخدم القرص الصلب من نوع ( SSD)</p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-803b-8400-d0a0cb958227" class="">٤-<mark class="highlight-orange">ذاكرة التخزين المؤقت (Cache memory) هي عبارة عن ذاكرة مميزة يتم استخدامها لتسريع ومزامنة وحدة المعالجة المركزية عالية السرعة</mark>، وتحتفظ بالبيانات والتعليمات المطلوبة بشكل متكرر بحيث تكون متاحة على الفور لوحدة المعالجة المركزية عند الحاجة، <mark class="highlight-teal">تستخدم هذه الذاكرة لتقليل متوسط الوقت للوصول إلى البيانات من الذاكرة الرئيسية.</mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8066-9a76-c6c2d4360c29" class="toggle"><li><details open=""><summary>البرمجيات </summary><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8085-84b2-fa39c795ff68" class="toggle"><li><details open=""><summary>برمجيات النظم</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8034-bede-c1663fadc5ee" class=""><mark class="highlight-yellow">هي مجموعة من البرمجيات التي تتحكم في تشغيل وإدارة أجهزة الحاسب</mark> والأجهزة الملحقة والبرامج الأخرى بكفاءة ويسر والاستفادة من جميع المكونات ولتنفيذ احتياجات المستخدم. وتنقسم برمجيات النظم إلى نوعين هما :</p></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80a2-ac41-ed3a33f17568" class="toggle"><li><details open=""><summary>نظم التشغيل</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8069-b58c-d7f68db2406f" class=""><mark class="highlight-teal">ويرمز لها (OS) وهي مجموعة برامج خاصة بتشغيل جهاز الحاسب وإدارة المعدات والبرامج والتطبيقات</mark>، <mark class="highlight-blue">ولا يمكن لأي جهاز حاسب أن يعمل بدون توفر نظام التشغيل</mark>، وغالباً ما يتم تحميل نظام التشغيل من <mark class="highlight-purple">الأقراص المدمجة (CD) أو الأقراص الرقمية ( DVD)</mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8015-9d6a-ce6d011ed536" class="toggle"><li><details open=""><summary>البرمجيات المساعدة</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80a2-89a6-e6819604ce77" class=""><mark class="highlight-orange">وهي مجموعة من البرمجيات المرافقة والمساعدة لنظام التشغيل</mark>، والتي تساعد وتسهل التعامل مع الحاسب بمكوناته المادية والبرمجية وإدارته، وتزيد من كفاءة تشغيله، فهي برامج خدمية للمستخدم والنظام ومن أمثلتها <mark class="highlight-purple">برامج مكافحة الفيروسات وبرامج ضغط الملفات لتقليل حجمها</mark></p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8069-9480-e862fbbf858b" class="toggle"><li><details open=""><summary>برمجيات تطبيقية</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80f6-a377-eaea5701c4a7" class="">وهي مجموعة من البرامج التي تعالج تطبيقات مختلفة وتجعل جهاز الحاسب الآلي ذا فائدة كبيرة، وتساعد المستخدم على إنجاز مهام محددة ومفيدة، ومن أشهر الأمثلة عليها : <mark class="highlight-teal">الحزم البرمجية مايكروسوفت أوفيس ( مايكروسوفت وورد ومايكروسوفت اكسيل وما يكروسوفت</mark></p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-801e-aa1a-f64de1e1b2d1" class="">
+</p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80d4-b3a2-e4359a203464" class="toggle"><li><details open=""><summary>البرمجيات الضارة ( مالوير )</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80c2-8044-da7dd321a617" class="">هي برامج يتم إنشاؤها <mark class="highlight-pink">بغرض إلحاق الضرر</mark> بأجهزة الحاسب الآلي أو البيانات، وقد يختلف الضرر الذي تسببه البرامج الضارة من تعطيل أو إتلاف أو تعديل أو حذف للبيانات.</p></div><div style="display:contents" dir="auto"><h3 id="2d52b791-7a96-8003-9fb7-cd9373e1c54c" class="">انواعها:-</h3></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8062-8ebd-f6201fe86325" class="toggle"><li><details open=""><summary><mark class="highlight-teal">فيروسات</mark></summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-803b-9844-c00170730781" class="">الفيروس هو عبارة عن <mark class="highlight-teal">برنامج ضار يرفق بملف أو برنامج يمكنه من الانتشار وإصابة ملفات مختلفة</mark>، ويمكن نقل الفيروسات كمرفقات إلى بريد إلكتروني أو ملف تم تنزيله، <mark class="highlight-teal">حيث ترفق الفيروسات بملف قابل للتنفيذ</mark> ، مما يعني أن الفيروس قد يكون موجودا على نظام <mark class="highlight-teal">ولكن لن يكون نشطاً أو قادراً على الانتشار حتى يقوم المستخدم بتشغيل أو فتح ملف أو برنامج مضيف ضار.</mark></p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80b0-a93d-d7f2e6b9a4d0" class="">ويعمل عبر 4 آليات وهي :-</p></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80c5-b76d-d7c615694c84" class="toggle"><li><details open=""><summary><mark class="highlight-orange">التناسخ</mark></summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80d5-89e5-e554a284f118" class="">وهي الجزء الذي يسمح للفيروس أن <mark class="highlight-orange">ينسخ</mark> نفسه</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8051-9e27-ea9997aa4b9d" class="toggle"><li><details open=""><summary><mark class="highlight-purple">التخفي</mark></summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-800d-ae86-f1b6fa18a1ce" class="">وهي الجزء الذي <mark class="highlight-purple">يخفي</mark> الفيروس عن الاكتشاف.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80b7-b5a4-fba11f0e4be4" class="toggle"><li><details open=""><summary><mark class="highlight-red">التنشيط</mark></summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80e9-b910-c72128942800" class="">وهي الجزء الذي يسمح للفيروس <mark class="highlight-red">بالانتشار</mark> قبل أن يعرف وجوده كاستخدام توقيت الساعة في الحاسوب</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80f5-8751-d672f652a023" class="toggle"><li><details open=""><summary><mark class="highlight-blue">التفعيل</mark> </summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-809e-96ec-f4b810b63932" class="">وهي الجزء الذي <mark class="highlight-blue">ينفذ</mark> الفيروس عندما يتم تنشيطه.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><h2 id="2d52b791-7a96-80aa-be70-deef879c3151" class="">انواع الفيروسات:</h2></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8051-bd0f-e65d8ca48a4e" class="toggle"><li><details open=""><summary>فيروس قطاع التشغيل</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-803c-98b2-dfd2ce0e4f1b" class="">وهو الذي <mark class="highlight-teal">ينشط في منطقة نظام التشغيل</mark> على القرص الصلب <mark class="highlight-red">وهو من أخطر أنواع الفيروسات حيث أنه يمنعك من تشغيل نظام التشغيل على جهاز الحاسب الآلي.</mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80b7-8f2d-c1e1d64fa2a5" class="toggle"><li><details open=""><summary>فيروس الملفات </summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80c7-82b2-f6ecceddfdb6" class="">حيث ينتشر هذا النوع <mark class="highlight-blue">في الملفات</mark> بسرعة كبيرة <mark class="highlight-blue">وعند فتح أي ملف يزيد انتشاره لبقية الملفات الموجودة</mark>.</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80a7-848e-d9006102f8d2" class="toggle"><li><details open=""><summary>فيروس الماكرو</summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8038-86fe-f502bb9dfcd8" class="">وهو <mark class="highlight-purple">من أكثر الفيروسات انتشارا</mark> حيث أنه يصيب برامج مايكروسوفت أوفيس مثل معالج</p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80c2-bca0-eaac14f60aec" class="">النصوص وورد، إلخ.</p></div></details></li></ul></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80c3-8a35-f912f1642148" class="toggle"><li><details open=""><summary><mark class="highlight-orange">ديدان</mark> </summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8097-b577-c6e3acb2e6ac" class="">هي برامج ضارة مستقلة <mark class="highlight-red">ولا تتطلب برنامجاً مضيفاً أو مساعدة بشرية لنشرها</mark> ، <mark class="highlight-blue">فهي تعمل دون الارتباط بعمل يقوم به المستخدم خلافا عن الفيروسات</mark>، حيث تكرر نسخها الوظيفية <mark class="highlight-brown">وقد تستهلك ذاكرة النظام وعرض النطاق الترددي للشبكة فيعمل على فشل النظام والشبكة</mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80fb-add9-d0fad5065428" class="toggle"><li><details open=""><summary><mark class="highlight-purple">طروادة</mark></summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80f5-a655-c902d355b019" class="">هو برنامج ضار <mark class="highlight-yellow">مخفي داخل برنامج قابل للتنفيذ دون علم المستخدم</mark>، ويبقى كامناً في البرنامج المصاب <mark class="highlight-blue">حيث يبدو كأنه برنامج مفيد ولكنه على عكس ذلك</mark> يهدد أمان جهاز الحاسب الآلي ويسبب الكثير من الأضرار، وتختلف أحصنة طروادة عن النوعين السابقين بأنها<mark class="highlight-purple"> لا تتكاثر</mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-8059-a105-e79fb7ffc54f" class="toggle"><li><details open=""><summary><mark class="highlight-red">تجسس ( spy ware )</mark></summary><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8063-b17e-c07e4eb8656f" class="">هي <mark class="highlight-teal">برامج تثبت على جهاز المستخدم دون علمه بهدف التجسس عليه</mark>، وتصنف على أنها برامج <mark class="highlight-blue">غزو الخصوصية</mark>، وتتمثل أكثر وظائف برامج التجسس شيوعاً في <mark class="highlight-red">سرقة المعلومات الشخصية ودفتر العناوين، فضلا عن إعادة توجيه المتصفح إلى صفحات الويب الإعلانية.</mark></p></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80aa-98c3-ddaa989e0276" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2d52b791-7a96-80a9-a357-eb04b4807818" class="toggle"><li><details open=""><summary>حماية الحاسب</summary><div style="display:contents" dir="auto"><ol type="1" id="2d52b791-7a96-800d-a187-fe7924665482" class="numbered-list" start="1"><li>إنشاء كلمة مرور قوية للوصول إلى جهاز الحاسب الآلي أو مورد الشبكة، بحيث يصعب تخمينها ، ومن التوصيات الإنشاء كلمة مرور قوية: <mark class="highlight-brown">يجب ألا تقل عن 11 خانة،</mark> وأن تحتوي على مزيج من الأرقام والحروف الكبيرة والصغيرة والرموز، <mark class="highlight-purple">وألا تحتوي كلمة المرور على معلومات المستخدم الشخصية مثل الاسم ورقم الجوال وتاريخ ومكان الميلاد</mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2d52b791-7a96-8087-a6b4-d07a87f178f2" class="numbered-list" start="2"><li>استعمال برامج <mark class="highlight-blue">مكافحة الفيروسات</mark> </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2d52b791-7a96-806d-867a-f95c4acb2ab4" class="numbered-list" start="3"><li>عمل <mark class="highlight-red">نسخة احتياطية</mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2d52b791-7a96-8024-9484-f11f72b8e613" class="numbered-list" start="4"><li><mark class="highlight-yellow">تفعيل نظام التشغيل وتشغيل جدار الحماية Firewall</mark></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2d52b791-7a96-80d6-839c-d2e32b5cc650" class="numbered-list" start="5"><li><mark class="highlight-blue">فصل الجهاز عن الشبكة في حال إصابته ببرنامج ضار </mark></li></ol></div></details></li></ul></div><div style="display:contents" dir="rtl"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2d52b791-7a96-80b8-8d39-c5dcd19cf2ec"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80d2-9e1d-dd0812686d8f" class="">إعداد : <mark class="highlight-blue">سعود الهاشمي</mark> , أرشيف KXZ </p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80a2-b589-ec2971828bb8" class="">T.me<a href="http://T.me/KXZ_155">/</a><a href="http://T.me/Kxz_155">Kxz_155</a></p></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-80da-9305-c8aa896c44f9" class="">0534384327</p></div><div style="display:contents" dir="auto"><blockquote id="2d52b791-7a96-808b-b4de-ff8347c85552" class="">يمنع نشر الرابط لمن قام بشراءه ، وارجوا من حصل عليه دون ان يشتريه أن يتواصل معي.</blockquote></div><div style="display:contents" dir="auto"><hr id="2d52b791-7a96-806a-b1e7-c9a516d02333"/></div><div style="display:contents" dir="rtl"><figure id="2d52b791-7a96-809d-a6a9-d55714005e36" class="image"><a href="1000003067.png"><img style="width:367px" src="1000003067.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8065-8ed9-d847a18e40d1" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2d52b791-7a96-8035-95c6-ccc554c560fc"/></div><div style="display:contents" dir="auto"><p id="2d52b791-7a96-8006-ad84-e834fb5a19c7" class="">سبحان الله و الحمد لله والله اكبر و لا إله إلا الله </p></div></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
